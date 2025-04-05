@@ -1,5 +1,5 @@
-import { query as _query } from '../../../sql/db';
-import { hashPassword } from '../../../utils/bcrypt';
+import { query as _query } from '../../../sql/db.js';
+import { hashPassword } from '../../../utils/bcrypt.js';
 
 const toCamelCase = (row) => {
   if (!row) return null;

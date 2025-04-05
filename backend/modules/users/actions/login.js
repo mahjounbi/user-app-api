@@ -1,6 +1,6 @@
-import db from '../../../sql/db';
-import { verifyPassword } from '../../../utils/bcrypt';
-import logger from '../../../utils/logger';
+import db from '../../../sql/db.js';
+import { verifyPassword } from '../../../utils/bcrypt.js';
+import logger from '../../../utils/logger.js';
 
 export default async (req, res) => {
   const { email, password } = req.body;

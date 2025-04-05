@@ -1,9 +1,9 @@
-import logger from '../../../utils/logger';
-import { getUserById } from '../services';
+import logger from '../../../utils/logger.js';
+import userService from '../services/index.js';
 
 export default async (req, res) => {
   try {
-    const user = await getUserById(req.params.id);
+    const user = await userService.getUserById(req.params.id);
     if (!user) {
       return res.status(404).json({ error: 'User not found' });
     }

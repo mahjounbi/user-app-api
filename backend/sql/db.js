@@ -1,5 +1,7 @@
-const { Pool } = require('pg');
-const chalk = require('chalk');
+import pkg from 'pg';
+import chalk from 'chalk';
+
+const { Pool } = pkg;
 
 const pool = new Pool({
   user: process.env.PG_USER,
@@ -13,4 +15,5 @@ pool.on('error', (err) => {
   console.log(chalk.hex('#34ace0').bold(err));
 });
 
-module.exports = pool;
+export const query = pool.query.bind(pool); // 👈 export nommé
+export default pool;

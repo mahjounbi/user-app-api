@@ -1,10 +1,9 @@
-const { default: logger } = require('../../../utils/logger');
+import { default as logger } from '../../../utils/logger.js';
+import userService from '../services/index.js';
 
-const { updateUser } = require('../services').default;
-
-module.exports = async (req, res) => {
+export default async (req, res) => {
   try {
-    const updated = await updateUser(req.params.id, req.body);
+    const updated = await userService.updateUser(req.params.id, req.body);
     res.json(updated);
   } catch (error) {
     logger.error('[Update User Error]', error);
