@@ -1,12 +1,17 @@
 import React from 'react';
-import './App.css';
-import ProfilePage from './pages/profile';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import UsersPage from './pages/users';
+import UserFormPage from './pages/users/profile';
 
 function App() {
   return (
-    <div className="root">
-      <ProfilePage />
-    </div>
+    <Router>
+      <Routes>
+        <Route path="/" element={<UsersPage />} />
+        <Route path="/user/new" element={<UserFormPage />} />
+        <Route path="/user/:id" element={<UserFormPage />} />
+      </Routes>
+    </Router>
   );
 }
 
